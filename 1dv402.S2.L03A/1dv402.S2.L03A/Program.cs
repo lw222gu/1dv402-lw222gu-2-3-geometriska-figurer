@@ -15,16 +15,18 @@ namespace _1dv402.S2.L03A
                 ViewMenu();
 
                 switch (Console.ReadLine())
+
                 {
+                    
                     case "0":
                         return;
 
                     case "1":
-                        CreateShape(ShapeType.Ellipse);
+                        ViewShapeDetail(CreateShape(ShapeType.Ellipse));
                         break;
 
                     case "2":
-                        CreateShape(ShapeType.Rectangle);
+                        ViewShapeDetail(CreateShape(ShapeType.Rectangle));
                         break;
 
                     default:
@@ -40,36 +42,59 @@ namespace _1dv402.S2.L03A
 
             } while (Console.ReadKey().Key != ConsoleKey.Escape);
 
-
         }
 
         private static Shape CreateShape(ShapeType shapeType)
         {
+            string promptLength = "Ange längden: ";
+            double length= ReadDoubleGreaterThanZero(promptLength);
+
+            string promptWidth = "Ange bredden: ";
+            double width = ReadDoubleGreaterThanZero(promptWidth);
+
+
             if (shapeType == ShapeType.Ellipse)
             {
-                Console.BackgroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine("==============================");
-                Console.WriteLine("=     Beräkna ellipsen       =");
-                Console.WriteLine("==============================");
-                Console.ResetColor();
-                Console.WriteLine("Ange längden: ");
-                Console.WriteLine("Ange bredden: ");
+                Ellipse ellipse = new Ellipse(length, width);
+                //Console.BackgroundColor = ConsoleColor.DarkGreen;
+                //Console.WriteLine("==============================");
+                //Console.WriteLine("=     Beräkna ellipsen       =");
+                //Console.WriteLine("==============================");
+                //Console.ResetColor();
+                return ellipse;
             }
 
             else
             {
-                Console.BackgroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine("==============================");
-                Console.WriteLine("=     Beräkna rektangeln     =");
-                Console.WriteLine("==============================");
-                Console.ResetColor();
-                Console.WriteLine("Ange längden: ");
-                Console.WriteLine("Ange bredden: ");
+                Rectangle rectangle = new Rectangle(length, width);
+                //Console.WriteLine("==============================");
+                //Console.WriteLine("=     Beräkna rektangeln     =");
+                //Console.WriteLine("==============================");
+                //Console.ResetColor();
+                return rectangle;
             }
         }
 
         private static double ReadDoubleGreaterThanZero(string prompt)
-        { 
+        {
+            double inputValue;
+
+            while (true)
+            {
+                Console.Write(prompt);
+
+                if (double.TryParse(Console.ReadLine(), out inputValue) && inputValue > 0)
+                {
+                    return inputValue;
+                }
+
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Fel! Ange ett flyttal större än 0.");
+                    Console.ResetColor();
+                } 
+            }
         }
 
         private static void ViewMenu()
@@ -91,6 +116,13 @@ namespace _1dv402.S2.L03A
 
         private static void ViewShapeDetail (Shape shape)
         {
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("==============================");
+            Console.WriteLine("=          Detaljer          =");
+            Console.WriteLine("==============================");
+            Console.ResetColor();
+            Console.WriteLine(shape.ToString());
+            Console.WriteLine("==============================");
         }
     }
 }

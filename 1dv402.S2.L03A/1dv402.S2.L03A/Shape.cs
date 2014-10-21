@@ -8,15 +8,12 @@ namespace _1dv402.S2.L03A
 {
     public enum ShapeType {Ellipse, Rectangle}
 
-    class Shape
+    abstract class Shape
     {
         private double _length;
         private double _width;
 
-        public abstract double Area
-        {
-            get;
-        }
+        public abstract double Area { get; }
         
         public double Length
         {
@@ -31,10 +28,7 @@ namespace _1dv402.S2.L03A
             }
         }
 
-        public abstract double Perimeter
-        {
-            get;
-        }
+        public abstract double Perimeter { get; }
         
         public double Width
         {
@@ -56,9 +50,11 @@ namespace _1dv402.S2.L03A
             Width = width;
         }
 
-        public override string ToString();
+        public override string ToString()
         {
-            
+            string details;
+            details = (String.Format("\nLängd: {0, 15:0.0} \nHöjd: {1, 16:0.0} \nOmkrets: {2, 13:0.0} \nArea: {3, 16:0.0}", Width, Length, Perimeter, Area));
+            return details;
         }
     }
 }
