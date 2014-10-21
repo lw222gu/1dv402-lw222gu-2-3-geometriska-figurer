@@ -122,6 +122,7 @@ namespace _1dv402.S2.L03A
 
         private static void ViewShapeDetail (Shape shape)
         {
+            Console.Clear();
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("==============================");
             Console.WriteLine("=          Detaljer          =");

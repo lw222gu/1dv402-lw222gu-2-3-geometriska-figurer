@@ -53,7 +53,7 @@ namespace _1dv402.S2.L03A
         public override string ToString()
         {
             string details;
-            details = (String.Format("\nLängd: {0, 15:0.0} \nHöjd: {1, 16:0.0} \nOmkrets: {2, 13:0.0} \nArea: {3, 16:0.0}", Width, Length, Perimeter, Area));
+            details = (String.Format("\nLängd   : {0, 7:0.0} \nHöjd    : {1, 7:0.0} \nOmkrets : {2, 7:0.0} \nArea    : {3, 7:0.0}", Width, Length, Perimeter, Area));
             return details;
         }
     }
