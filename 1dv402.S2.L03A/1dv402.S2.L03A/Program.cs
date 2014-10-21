@@ -56,6 +56,9 @@ namespace _1dv402.S2.L03A
             if (shapeType == ShapeType.Ellipse)
             {
                 Ellipse ellipse = new Ellipse(length, width);
+
+                //Var ska den inkommenterade koden in för att det ska bli rätt?
+
                 //Console.BackgroundColor = ConsoleColor.DarkGreen;
                 //Console.WriteLine("==============================");
                 //Console.WriteLine("=     Beräkna ellipsen       =");
@@ -67,6 +70,9 @@ namespace _1dv402.S2.L03A
             else
             {
                 Rectangle rectangle = new Rectangle(length, width);
+                
+                //Var ska den inkommenterade koden in för att det ska bli rätt?
+                
                 //Console.WriteLine("==============================");
                 //Console.WriteLine("=     Beräkna rektangeln     =");
                 //Console.WriteLine("==============================");
