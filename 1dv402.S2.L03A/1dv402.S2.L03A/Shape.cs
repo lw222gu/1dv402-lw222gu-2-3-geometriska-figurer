@@ -56,6 +56,8 @@ namespace _1dv402.S2.L03A
 
         protected Shape (double length, double width)
         {
+            Length = length;
+            Width = width;
         }
 
         public override string ToString();
