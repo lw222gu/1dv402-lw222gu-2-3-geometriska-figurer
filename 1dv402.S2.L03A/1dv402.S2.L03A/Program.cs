@@ -46,39 +46,31 @@ namespace _1dv402.S2.L03A
 
         private static Shape CreateShape(ShapeType shapeType)
         {
+            Shape shape = null;
+            
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("==============================");
+            Console.WriteLine("=     Beräkna {0}       =", shapeType);
+            Console.WriteLine("==============================");
+            Console.ResetColor();
+
             string promptLength = "Ange längden: ";
-            double length= ReadDoubleGreaterThanZero(promptLength);
+            double length = ReadDoubleGreaterThanZero(promptLength);
 
             string promptWidth = "Ange bredden: ";
             double width = ReadDoubleGreaterThanZero(promptWidth);
-
-
+            
             if (shapeType == ShapeType.Ellipse)
             {
-                Ellipse ellipse = new Ellipse(length, width);
-
-                //Var ska den inkommenterade koden in för att det ska bli rätt?
-
-                //Console.BackgroundColor = ConsoleColor.DarkGreen;
-                //Console.WriteLine("==============================");
-                //Console.WriteLine("=     Beräkna ellipsen       =");
-                //Console.WriteLine("==============================");
-                //Console.ResetColor();
-                return ellipse;
+                shape = new Ellipse(length, width);
             }
 
             else
             {
-                Rectangle rectangle = new Rectangle(length, width);
-                
-                //Var ska den inkommenterade koden in för att det ska bli rätt?
-                
-                //Console.WriteLine("==============================");
-                //Console.WriteLine("=     Beräkna rektangeln     =");
-                //Console.WriteLine("==============================");
-                //Console.ResetColor();
-                return rectangle;
+                shape = new Rectangle(length, width);
             }
+            return shape;
+
         }
 
         private static double ReadDoubleGreaterThanZero(string prompt)
